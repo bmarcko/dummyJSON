@@ -1,0 +1,17 @@
+{
+    "name": "user/dummyjson",
+    "autoload": {
+        "psr-4": {
+            "User\\Dummyjson\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bmarcko",
+            "email": "bobbymarckocruz@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
