@@ -5,18 +5,22 @@ use GuzzleHttp\Client;
 #use GuzzleHttp\Psr7\Request;
 
 $client = new Client([
-        'base_uri' => 'https://dummyjson.com/',
+    'base_uri' => 'https://dummyjson.com/',
 ]);
 
-$id = $_GET["product_id"];
-$response = $client->get('products/' . $id);
+$products = [
+    'json' => [
+        'title' => 'This is an update'
+    ]
+];
+
+#$id = $_GET["product_id"];
+$response = $client->put('https://dummyjson.com/products/1', $products);
 $code = $response->getStatusCode();
 $body = $response->getBody();
 $prod = json_decode($body);
 
-#$product_id = $idk->get('https://dummyjson.com/products/1');
-#var_dump($product_id);
-
+#var_dump(json_decode($body));
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +28,13 @@ $prod = json_decode($body);
 <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Single Product</title>
+        <title>Update Product</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
 
-<h1>Single Product</h1>
+<h1>Update Product</h1>
 
 <table class="table table-bordered table-hover">
         <tr>

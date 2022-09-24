@@ -5,18 +5,28 @@ use GuzzleHttp\Client;
 #use GuzzleHttp\Psr7\Request;
 
 $client = new Client([
-        'base_uri' => 'https://dummyjson.com/',
+        'base_uri' => 'https://dummyjson.com/'
 ]);
 
-$id = $_GET["product_id"];
-$response = $client->get('products/' . $id);
+$products = [
+	'json' => [
+        'id' => '101',
+        'title' => 'iPhone 14',
+        'description' => 'The new iPhone 14 comes with state of the art camera, IOS, and more.',
+        'price' => '800',
+        'brand' => 'Apple',
+        'category' => 'smartphones',
+        'thumbnail' => 'img/iphone14.jpg'
+        ]
+];
+
+#$id = $_GET["product_id"];
+$response = $client->delete('https://dummyjson.com/products/1');
 $code = $response->getStatusCode();
 $body = $response->getBody();
 $prod = json_decode($body);
 
-#$product_id = $idk->get('https://dummyjson.com/products/1');
-#var_dump($product_id);
-
+#var_dump(json_decode($body));
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +34,13 @@ $prod = json_decode($body);
 <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Single Product</title>
+        <title>Delete Product</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
 
-<h1>Single Product</h1>
+<h1>Delete Product</h1>
 
 <table class="table table-bordered table-hover">
         <tr>
