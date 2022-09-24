@@ -51,7 +51,8 @@ if (isset($_POST['submit'])) {
 
         <div class="alert alert-success m-5" role="alert">
             <?php echo "Login Successful!"?><br>
-            <?php echo "User token is: " . $users['token']; ?>
+            <?php echo "Welcome " . $users['username'] . "! Your user token is: "?><br>
+            <?php echo $users['token']; ?>
         </div>
 
     <?php
