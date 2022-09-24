@@ -8,17 +8,6 @@ $client = new Client([
         'base_uri' => 'https://dummyjson.com/'
 ]);
 
-$products = [
-	'json' => [
-        'id' => '101',
-        'title' => 'iPhone 14',
-        'description' => 'The new iPhone 14 comes with state of the art camera, IOS, and more.',
-        'price' => '800',
-        'brand' => 'Apple',
-        'category' => 'smartphones',
-        'thumbnail' => 'img/iphone14.jpg'
-        ]
-];
 
 #$id = $_GET["product_id"];
 $response = $client->delete('https://dummyjson.com/products/1');
